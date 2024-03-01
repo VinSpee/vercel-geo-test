@@ -27,22 +27,20 @@ export const useLocationLoader = routeLoader$(async (event) => {
 
   const countryInfo = countries.find((x) => x.cca2 === country);
 
-  if (!countryInfo) {
-    throw event.error(404, "Can’t get info for that country");
-  }
-  const currencyCode = Object.keys(countryInfo.currencies)[0];
-  const currency = countryInfo.currencies[currencyCode];
-  const languages = Object.values(countryInfo.languages).join(", ");
+  const currencyCode = Object.keys(countryInfo?.currencies ?? [])[0];
+  const currency = countryInfo?.currencies[currencyCode];
+  const languages = Object.values(countryInfo?.languages ?? []).join(", ");
 
-  event.url.searchParams.set("country", country);
-  event.url.searchParams.set("city", city);
-  event.url.searchParams.set("region", region);
-  event.url.searchParams.set("currencyCode", currencyCode);
-  event.url.searchParams.set("currencySymbol", currency.symbol);
-  event.url.searchParams.set("name", currency.name);
-  event.url.searchParams.set("languages", languages);
-  event.url.searchParams.set("flag", countryInfo.flag);
-  return Object.fromEntries(event.url.searchParams.entries());
+  return {
+    country: country,
+    city: city,
+    region: region,
+    currencyCode: currencyCode,
+    currencySymbol: currency?.symbol,
+    name: currency?.name,
+    languages: languages,
+    flag: countryInfo?.flag,
+  };
 });
 
 export default component$(() => {
