@@ -1,5 +1,5 @@
 import { component$, Slot } from "@builder.io/qwik";
-import type { RequestHandler } from "@builder.io/qwik-city";
+import { type RequestHandler } from "@builder.io/qwik-city";
 
 export const onGet: RequestHandler = async ({ cacheControl }) => {
   // Control caching for this request for best performance and to reduce hosting costs:
@@ -13,5 +13,23 @@ export const onGet: RequestHandler = async ({ cacheControl }) => {
 };
 
 export default component$(() => {
-  return <Slot />;
+  return (
+    <div class="mx-auto flex h-screen flex-col">
+      <div class="bg-accents-0 px-8">
+        <Slot />
+      </div>
+      <footer class="bg-accents-1 z-20 mt-auto flex w-full items-center justify-center border-t py-10">
+        <span class="text-primary">Created by</span>
+        <a
+          href="https://vinspee.me"
+          aria-label="Vercel.com Link"
+          target="_blank"
+          rel="noreferrer"
+          class="text-black"
+        >
+          VinSpee, based on vercel’s example
+        </a>
+      </footer>
+    </div>
+  );
 });
