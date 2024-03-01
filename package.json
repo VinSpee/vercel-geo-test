@@ -1,47 +1,29 @@
 {
-  "name": "my-qwik-empty-starter",
-  "description": "App with Routing built-in ready to create your app",
-  "engines": {
-    "node": ">=15.0.0"
-  },
+  "name": "geolocation",
+  "repository": "https://github.com/vercel/examples.git",
+  "license": "MIT",
   "private": true,
-  "trustedDependencies": [
-    "sharp"
-  ],
-  "type": "module",
   "scripts": {
-    "build": "qwik build",
-    "build.client": "vite build",
-    "build.preview": "vite build --ssr src/entry.preview.tsx",
-    "build.server": "vite build -c adapters/vercel-edge/vite.config.ts",
-    "build.types": "tsc --incremental --noEmit",
-    "deploy": "vercel deploy",
-    "dev": "vite --mode ssr",
-    "dev.debug": "node --inspect-brk ./node_modules/vite/bin/vite.js --mode ssr --force",
-    "fmt": "prettier --write .",
-    "fmt.check": "prettier --check .",
-    "lint": "eslint \"src/**/*.ts*\"",
-    "preview": "qwik build preview && vite preview --open",
-    "start": "vite --open --mode ssr",
-    "qwik": "qwik"
-  },
-  "devDependencies": {
-    "@builder.io/qwik": "^1.4.5",
-    "@builder.io/qwik-city": "^1.4.5",
-    "@types/eslint": "^8.56.2",
-    "@types/node": "^20.11.6",
-    "@typescript-eslint/eslint-plugin": "^6.19.1",
-    "@typescript-eslint/parser": "^6.19.1",
-    "eslint": "^8.56.0",
-    "eslint-plugin-qwik": "^1.4.5",
-    "prettier": "^3.2.4",
-    "typescript": "5.3.3",
-    "undici": "*",
-    "vercel": "^29.1.1",
-    "vite": "^5.0.12",
-    "vite-tsconfig-paths": "^4.2.1"
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
   },
   "dependencies": {
-    "@vercel/edge": "^1.1.1"
+    "@vercel/examples-ui": "^1.0.5",
+    "next": "canary",
+    "react": "latest",
+    "react-dom": "latest"
+  },
+  "devDependencies": {
+    "@types/node": "^17.0.45",
+    "@types/react": "^17.0.53",
+    "autoprefixer": "^10.4.14",
+    "eslint": "^8.36.0",
+    "eslint-config-next": "canary",
+    "postcss": "^8.4.21",
+    "tailwindcss": "^3.2.7",
+    "turbo": "^1.8.5",
+    "typescript": "^4.9.5"
   }
 }
