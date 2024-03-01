@@ -20,10 +20,14 @@ export const useLocationLoader = routeLoader$(async (event) => {
     CountriesSchema.parse(res.default),
   );
   const geo = geolocation(event);
-  const country = geo.country || "US";
-  const city = geo.city || "San Francisco";
-  const region = geo.region || "CA";
+  const country = geo.country || "XX";
+  const city = geo.city || "Unknown";
+  const region = geo.region || "XX";
   console.log("viewer location", geo);
+  console.log(
+    "headers",
+    Object.fromEntries([...new Headers(event.headers).entries()]),
+  );
 
   const countryInfo = countries.find((x) => x.cca2 === country);
 
