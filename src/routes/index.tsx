@@ -23,6 +23,7 @@ export const useLocationLoader = routeLoader$(async (event) => {
   const country = geo.country || "US";
   const city = geo.city || "San Francisco";
   const region = geo.region || "CA";
+  console.log("viewer location", geo);
 
   const countryInfo = countries.find((x) => x.cca2 === country);
 
