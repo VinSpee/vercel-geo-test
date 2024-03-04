@@ -10,6 +10,13 @@ export const onGet: RequestHandler = async ({ cacheControl }) => {
     // Max once every 5 seconds, revalidate on the server to get a fresh version of this page
     maxAge: 5,
   });
+  cacheControl(
+    {
+      maxAge: 5,
+      staleWhileRevalidate: 60 * 60 * 24 * 7,
+    },
+    "CDN-Cache-Control",
+  );
 };
 
 export default component$(() => {
