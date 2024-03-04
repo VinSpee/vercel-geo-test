@@ -19,7 +19,7 @@ export const useLocationLoader = routeLoader$(async (event) => {
   const countries = await import("../lib/countries.json").then((res) =>
     CountriesSchema.parse(res.default),
   );
-  const geo = geolocation(event);
+  const geo = geolocation(event.request);
   const country = geo.country || "XX";
   const city = geo.city || "Unknown";
   const region = geo.region || "XX";
