@@ -25,7 +25,7 @@ export const useLocationLoader = routeLoader$(async (event) => {
   const region = geo.region || "XX";
   console.log("viewer location", geo);
   console.log(
-    "headers",
+    "useLocationLoader: headers",
     Object.fromEntries([...new Headers(event.headers).entries()]),
   );
 
